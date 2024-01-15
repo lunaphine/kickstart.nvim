@@ -324,6 +324,9 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Open h files as C syntax instead of C++
+vim.g.c_syntax_for_h = 'c'
+
 -- [[ Basic Keymaps ]]
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
