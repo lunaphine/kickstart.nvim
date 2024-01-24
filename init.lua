@@ -102,6 +102,8 @@ require('lazy').setup({
     },
   },
 
+  'mfussenegger/nvim-jdtls',
+
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
