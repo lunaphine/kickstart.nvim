@@ -608,6 +608,8 @@ require('lspconfig').lua_ls.setup({
     telemetry = { enable = false },
   }
 })
+-- require('jdtls-config')
+require('lspconfig').nixd.setup({})
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
