@@ -1,1 +1,1 @@
-/nix/store/b84fgr0xrs3zdnkxifjkv6xswn9v8hvf-home-manager-files/.config/nvim/ftplugin/java.lua
+/nix/store/bn4yf5qxcp3s4gsq7vl3zs70whkyxsf0-home-manager-files/.config/nvim/ftplugin/java.lua

@@ -601,15 +601,28 @@ lsp_zero.on_attach(function(client, bufnr)
   on_attach(client, bufnr)
 end)
 
-require('lspconfig').clangd.setup({})
-require('lspconfig').lua_ls.setup({
+vim.lsp.config('clangd', {})
+vim.lsp.enable('clangd')
+vim.lsp.config('lua_ls', {
   Lua = {
     workspace = { checkThirdParty = false },
     telemetry = { enable = false },
   }
 })
+vim.lsp.enable('lua_ls')
 -- require('jdtls-config')
-require('lspconfig').nixd.setup({})
+vim.lsp.config('nixd', {})
+vim.lsp.enable('nixd')
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ['rust_analyzer'] = {
+      check = {
+        command = "clippy"
+      }
+    }
+  }
+})
+vim.lsp.enable('rust_analyzer')
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
