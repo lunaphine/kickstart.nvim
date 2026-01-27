@@ -618,7 +618,7 @@ vim.lsp.config('rust_analyzer', {
     ['rust_analyzer'] = {
       check = {
         command = "clippy",
-        extraArgs = {"-Wclippy::pedantic" "-Wclippy::restriction"},
+        extraArgs = {"-Wclippy::pedantic", "-Wclippy::restriction"},
       }
     }
   }
