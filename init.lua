@@ -601,6 +601,8 @@ lsp_zero.on_attach(function(client, bufnr)
   on_attach(client, bufnr)
 end)
 
+vim.lsp.inlay_hint.enable(true)
+
 vim.lsp.config('clangd', {})
 vim.lsp.enable('clangd')
 vim.lsp.config('lua_ls', {
@@ -617,8 +619,8 @@ vim.lsp.config('rust_analyzer', {
   settings = {
     ['rust_analyzer'] = {
       check = {
-        command = "clippy",
-        extraArgs = {"-Wclippy::pedantic", "-Wclippy::restriction"},
+        command = "clippy";
+        extraArgs = {"-Wclippy::pedantic", "-Wclippy::restriction"};
       }
     }
   }
