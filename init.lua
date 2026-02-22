@@ -60,6 +60,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local typst_deps = require 'custom.typst-deps'
+
 -- [[ Configure plugins ]]
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
@@ -120,7 +122,18 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
-
+  {
+    'chomosuke/typst-preview.nvim',
+    lazy = false, -- or ft = 'typst'
+    version = '1.*',
+    opts = {
+      open_cmd = 'firefox %s',
+      dependencies_bin = {
+        ['tinymist'] = typst_deps.tinymist,
+        ['websocat'] = typst_deps.websocat,
+      }
+    }, -- lazy.nvim will implicitly calls `setup {}`
+  },
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
@@ -627,7 +640,20 @@ vim.lsp.config('rust_analyzer', {
   }
 })
 vim.lsp.enable('rust_analyzer')
+vim.lsp.config('tinymist', {
+  cmd = { "tinymist" },
+  filetypes = { "typst" },
+  settings = {
+    formatterMode = "typstyle",
+    exportPdf = "onType",
+    semanticTokens = "disable"
+  }
+})
+vim.lsp.enable('tinymist')
+vim.lsp.config('pylsp', {
 
+})
+vim.lsp.enable('pylsp')
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
